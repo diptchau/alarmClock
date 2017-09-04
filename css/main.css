@@ -284,22 +284,17 @@ textarea {
     }
 }
 
-#startscr{
-    background-color: #bdc3c7;
-    position: fixed;
-    height: 100%;
-    width: 100%;
-}
 
 #full{
     height: 60px;
     width: 200px;
     margin-left: calc(50% - 100px);
     margin-top: 40vh;
-    border: 3px solid white;
+    border: 3px solid #2980b9;
     border-radius: 5px;
     background-color: transparent;
     color: #2980b9;
+    position: absolute;
 }
 
 .bck{

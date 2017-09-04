@@ -1,3 +1,7 @@
+window.onload = function(){
+    $('.bck').hide();
+}
+
 function requestFullScreen(element) {
     // Supports most browsers and their versions.
     var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
@@ -14,5 +18,6 @@ function requestFullScreen(element) {
 
 $('#full').click(function(){
     requestFullScreen(document.body);
-    $('#startscr').hide();
+    $('#full').hide();
+    $('.bck').show();
 }); 
