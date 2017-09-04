@@ -297,7 +297,7 @@ textarea {
     position: absolute;
 }
 
-.bck{
+#bck{
     background-color: #181E38;
     position: fixed;
     height: 100%;
