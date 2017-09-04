@@ -1,21 +1,66 @@
-window.onload = function(){
-    $('.content').hide();
-}
+// window.onload = function(){
+//     $('.content').hide();
+// }
 
-function launchIntoFullscreen(element) {
-  if(element.requestFullscreen) {
-    element.requestFullscreen();
-  } else if(element.mozRequestFullScreen) {
-    element.mozRequestFullScreen();
-  } else if(element.webkitRequestFullscreen) {
-    element.webkitRequestFullscreen();
-  } else if(element.msRequestFullscreen) {
-    element.msRequestFullscreen();
+// function launchIntoFullscreen(element) {
+//   if(element.requestFullscreen) {
+//     element.requestFullscreen();
+//   } else if(element.mozRequestFullScreen) {
+//     element.mozRequestFullScreen();
+//   } else if(element.webkitRequestFullscreen) {
+//     element.webkitRequestFullscreen();
+//   } else if(element.msRequestFullscreen) {
+//     element.msRequestFullscreen();
+//   }
+// }
+
+// $('#full').click(function(){
+//     launchIntoFullscreen(document.getElementById("bck"));
+//     $('#full').hide();
+//     $('.content').show();
+// }); 
+
+interact('.draggable')
+  .draggable({
+    // enable inertial throwing
+    inertia: true,
+    // keep the element within the area of it's parent
+    restrict: {
+      restriction: "parent",
+      endOnly: true,
+      elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
+    },
+    // enable autoScroll
+    autoScroll: true,
+
+    // call this function on every dragmove event
+    onmove: dragMoveListener,
+    // call this function on every dragend event
+    onend: function (event) {
+      var textEl = event.target.querySelector('p');
+
+      textEl && (textEl.textContent =
+        'moved a distance of '
+        + (Math.sqrt(event.dx * event.dx +
+                     event.dy * event.dy)|0) + 'px');
+    }
+  });
+
+  function dragMoveListener (event) {
+    var target = event.target,
+        // keep the dragged position in the data-x/data-y attributes
+        x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
+        y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+
+    // translate the element
+    target.style.webkitTransform =
+    target.style.transform =
+      'translate(' + x + 'px, ' + y + 'px)';
+
+    // update the posiion attributes
+    target.setAttribute('data-x', x);
+    target.setAttribute('data-y', y);
   }
-}
 
-$('#full').click(function(){
-    launchIntoFullscreen(document.getElementById("bck"));
-    $('#full').hide();
-    $('.content').show();
-}); 
+  // this is used later in the resizing and gesture demos
+  window.dragMoveListener = dragMoveListener;

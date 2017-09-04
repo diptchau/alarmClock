@@ -319,6 +319,28 @@ textarea {
     width: 80px;
     bottom: 48px;
     position: absolute;
-
 }
+
+.alarmBtn{
+    position: absolute;
+    margin-left: calc(50% - 30px);
+    margin-top: 25vh;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    border: 1px solid white;
+    /*transition: all 0.5s ease;*/
+}
+
+.alarmBtn:active{
+    transform: scale(1.1);
+}
+
+.symbol{
+    padding-top: 14px;
+    padding-left: 16px;
+    height: 28px;
+    width: 28px;
+}
+
 
