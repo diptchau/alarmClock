@@ -305,11 +305,12 @@ textarea {
 }
 
 .txtTime{
-    margin-top: 10%;
+    margin: 0 auto;
     font-size: 5em;
     text-align: center;
     font-weight: 300;
     color: white;
+    padding-top: 70px;
 }
 
 .stopBtn{
@@ -322,25 +323,158 @@ textarea {
 }
 
 .alarmBtn{
-    position: absolute;
-    margin-left: calc(50% - 30px);
-    margin-top: 25vh;
     border-radius: 50%;
     height: 60px;
     width: 60px;
-    border: 1px solid white;
-    /*transition: all 0.5s ease;*/
+    border: 2px solid rgba(41, 128, 185,0.5);
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+    position: absolute;
+    outline: none;
+    left: calc(50% - 30px);
+    top: 50vh;
+    z-index: 2;
+    color: white;
 }
 
-.alarmBtn:active{
-    transform: scale(1.1);
+.alarmBtn:before {
+  content:'';
+  display:block;
+  position:absolute;
+  top:0; right:0; bottom:0; left:0;
+  border-radius:50%;
+  border:2px solid rgba(41, 128, 185,0.5);
 }
+
+.alarmBtn:before {
+  -webkit-animation: ripple 2s ease infinite;
+  animation: ripple 2s ease infinite;
+}
+
+@-webkit-keyframes ripple{
+  0% {-webkit-transform:scale(1); opacity:1;}
+  50% {-webkit-transform:scale(1.5);}
+  100% {-webkit-transform:scale(2); opacity:0;}
+}
+
+@keyframes ripple{
+  0% {transform:scale(1); opacity:1;}
+  50% {transform:scale(1.5); }
+  100% {transform:scale(2); opacity:0;}
+}
+
+#actionBtn{
+    position: absolute;
+    outline: none;
+    left: calc(50% - 30px);
+    top: 50vh;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    background-color: transparent;
+    border: none;
+    z-index: 2;
+}
+
 
 .symbol{
-    padding-top: 14px;
-    padding-left: 16px;
     height: 28px;
     width: 28px;
+    background-image: url('../img/002-snooze.svg');
+    background-size: cover;
+    margin-top: 14px;
+    margin-left: 17px;
 }
 
+.dropzone{
+    background-color: transparent;
+    color: white; 
+    height: 38px;
+    width: 60px;
+    position: absolute;
+    border: 1px solid white;
+    border-radius: 50%;
+    font-size: 11px;
+    text-align: center;
+    padding-top: 22px;
+    transition: all 0.5s ease, background-color 0.1s;
+}
+
+#dropzone1{
+    opacity: 0;
+    transform: scale(0.5);
+    left: calc(50% - 30px);
+    top: 50vh;
+}
+
+#dropzone2{
+    opacity: 0;
+    transform: scale(0.5);
+    left: calc(50% - 30px);
+    top: 50vh;
+}
+
+#dropzone3{
+    opacity: 0;
+    transform: scale(0.5);
+    left: calc(50% - 30px);
+    top: 50vh;
+}
+
+#dropzone4{
+    opacity: 0;
+    transform: scale(0.5);
+    left: calc(50% - 30px);
+    top: 50vh;
+}
+
+#drag-1{
+  -webkit-transform: translate(0px, 0px);
+          transform: translate(0px, 0px);
+}
+
+#drag-me::before {
+  content: "#" attr(id);
+  font-weight: bold;
+}
+
+.content{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+}
+
+.drop-target {
+  background-color: white;
+  color: #181E38;
+  transform: scale(1.4);
+}
+
+.resultscr{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    position: fixed;
+    padding-top: 100px;
+    padding-right: 50px;
+    text-align: center;
+    position: absolute;
+}
+
+#refresh{
+    margin-top: 140px;
+    background-color: transparent;
+    border: 2px solid #181E38;;
+    padding: 12px;
+    width: 200px;
+    border-radius: 5px;
+    color: #181E38;
+
+}
+
+.timer{
+    font-size: 16px;
+    margin-top: 18px;
+    margin-left: 10px;
+}
 
